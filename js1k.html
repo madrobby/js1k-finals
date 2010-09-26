@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS1K</title>
+  <style type="text/css" media="screen">
+    html {
+      height: 100%;
+    }
+    body {
+      -webkit-transform: perspective(800);
+      -webkit-transform-style: preserve-3d;
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+      background: 
+        #5f6b7a no-repeat top center -webkit-gradient(radial, center top, 0, center top, 600, from(#7f8d9e), to(#5f6b7a));
+    }
+    @-webkit-keyframes bounce {
+      from {
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      to {
+        -webkit-transform: rotateX(0deg) rotateY(-360deg) rotateZ(0deg);
+      }
+    }
+    @-webkit-keyframes rot {
+      from {
+        -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+      }
+      to {
+        -webkit-transform: rotateX(0deg) rotateY(-360deg) rotateZ(0deg);
+      }
+    }
+    @-webkit-keyframes scroll {
+      from {
+        -webkit-transform: translate3d(-300px,900px,-300px);
+      }
+      to {
+        -webkit-transform: translate3d(-300px,-1000px,-300px);
+      }
+    }
+    @-webkit-keyframes cube {
+      from {
+        -webkit-transform: rotateX(180deg) rotateY(0deg) rotateZ(-180deg) scaleX(0.2) scaleY(0.2) scaleZ(0.2);
+      }
+      50% {
+        -webkit-transform: rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+      }
+      to {
+        -webkit-transform: rotateX(-180deg) rotateY(360deg) rotateZ(180deg) scaleX(0.2) scaleY(0.2) scaleZ(0.2);
+      }
+    }
+    @-webkit-keyframes cubeH {
+      from {
+        -webkit-transform: translate3d(0,0,50px) rotateX(180deg) rotateY(0deg) rotateZ(-180deg) scaleX(0.2) scaleY(0.2) scaleZ(0.2);
+      }
+      50% {
+        -webkit-transform: translate3d(0,0,-250px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+      }
+      to {
+        -webkit-transform: translate3d(0,0,50px) rotateX(-180deg) rotateY(360deg) rotateZ(180deg) scaleX(0.2) scaleY(0.2) scaleZ(0.2);
+      }
+    }
+    #cube1,#cube2,#cube3 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-top: -250px;
+      margin-left: -250px;
+      -webkit-transform-style: preserve-3d;
+      -webkit-animation: cube 5s infinite ease-in-out;
+      width: 500px;
+      height: 500px;
+      opacity: 0;
+    }
+    #cube2 {
+      left: 20%;
+      -webkit-animation: cubeH 5s infinite ease-in-out;
+    }
+    #cube3 {
+      left: 80%;
+      -webkit-animation: cubeH 5s infinite ease-in-out;
+    }
+    #cw {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      -webkit-animation: rot 19s infinite linear 45s;
+      -webkit-transform-style: preserve-3d;
+    }
+    div.face {
+      width: 500px;
+      height: 500px;
+      background: url(sub.jpg);
+      background-size: 100%;
+      position: absolute;
+    }
+    #face_1 {
+      -webkit-transform: translate3d(0,0,-250px);
+    }
+    #face_2 {
+      -webkit-transform: rotateY(90deg) translate3d(0,0,-250px);
+    }
+    #face_3 {
+      -webkit-transform: rotateY(180deg) translate3d(0,0,-250px);
+    }
+    #face_4 {
+      -webkit-transform: rotateY(270deg) translate3d(0,0,-250px);
+    }
+    #js1k {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      margin-top: -250px;
+      text-align: center;
+      font: 500px/500px Courier;
+      color: rgba(127,141,158,0.4);
+      text-shadow: 0px 5px rgba(255,255,255,0.7);
+      -webkit-animation: bounce 10s infinite linear;
+      opacity: 0;
+    }
+    #audio_author {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: rgba(255,255,255,0.3);
+      font: 10px/12px Helvetica;
+    }
+    #code {
+      position: absolute;
+      top: 0px;
+      font: 40px/40px Courier;
+      width: 1000px;
+      color: rgba(255,255,255,0.4);
+      -webkit-animation: scroll 100s infinite linear;
+    }
+  </style>
+</head>
+<body>
+  <div id="js1k">JS1K</div>
+  <div id="cw">
+  <div id="cube1">
+    <div class="face" id="face_1"></div>
+    <div class="face" id="face_2"></div>
+    <div class="face" id="face_3"></div>
+    <div class="face" id="face_4"></div>
+  </div>
+  <div id="cube2">
+    <div class="face" id="face_1"></div>
+    <div class="face" id="face_2"></div>
+    <div class="face" id="face_3"></div>
+    <div class="face" id="face_4"></div>
+  </div>
+  <div id="cube3">
+    <div class="face" id="face_1"></div>
+    <div class="face" id="face_2"></div>
+    <div class="face" id="face_3"></div>
+    <div class="face" id="face_4"></div>
+  </div>
+  </div>
+  <audio src="275382_eye_of_the_tiger_8bit.wav" autoplay="autplay"></audio>
+  <div id="audio_author">
+    Music (cc) Exactly33 http://www.newgrounds.com/audio/listen/275382
+  </div>
+  <div id="code"><pre>S=String.fromCharCode A=32,O=127 f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)
+S=String.fromCharCode A=32,O=127 f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1) f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)
+S=String.fromCharCode A=32,O=127 f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)<
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)
+S=String.fromCharCode A=32,O=127 f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)
+S=String.fromCharCode A=32,O=127 f=function(l,v){for(k=l*(v?2:3);k--;)m+=&#x27;&yuml;&oacute;$&Agrave;ZZ`&#x27;
++(v?&#x27;$&#x27;:&#x27;ZZ&#x27;)+&#x27;ZZZZ&thorn;&ETH;&#x27;+Array(34).join(&#x27;Z&#x27;);for(;k++&lt;l*2646;u++)d+=S(Math.sin(k*.0
+85)*!!v*A+O)}with(document.body.children[0])with(getContext(&#x27;2d&#x27;))r=function(E){if
+(E){d=m=&#x27;&#x27;,v=[],u=i=j=0s=prompt()for(f(9);g=x=2,c=s[Y=&#x27;charCodeAt&#x27;](i);i++,f(g))fo
+r(e=c-A?&#x27;~^NFB@`px|&#x27;[Y](c-48)||&#x27;\x0a04[i]=u;e&gt;3;e&gt;&gt;=1,g*=s.substr(i-x--,3)!=&#x27;SOS&#x27;)
+f(e&amp;2|1,1),f(1)for(w=[&#x27;WAVEfmt ZZZZZD&not;ZZD&not;ZZZZdata&#x27;];h=[u+36,u][j];j++)for(i=
+4;i--;h&gt;&gt;=8)w[j]+=S(h&amp;255)with(a=new Audio)play(src=&#x27;data:&#x27;+(canPlayType(t=&#x27;audio/
+wav&#x27;)?t:t=&#x27;&#x27;)+&#x27;;base64,&#x27;+btoa((t?w.join(&#x27;&#x27;)+d:m).replace(/Z/g,&#x27;\x00&#x27;)))}width=W=50
+0;font=&#x27;20ptX&#x27;;beginPath(p=a.currentTime*44100|0);for(moveTo(i=0,A);i++&lt;W;)lineTo(
+i,(d[Y](p+i*50-W*25&gt;&gt;6&lt;&lt;6)-O|0)+A);stroke(lineTo(W,A));for(i in v)fillText(S(s[Y](
+i)),(v[i]-p)/50+W/2|0,85);p&lt;u&amp;&amp;setTimeout(&#x27;r()&#x27;,9)||r(1)}r(1)</pre></div>
+  <script>
+    var c1 = document.getElementById('cube1'),
+      c2 = document.getElementById('cube2'),
+      c3 = document.getElementById('cube3');
+    setTimeout(function(){
+      document.getElementById('js1k').style.cssText += ';-webkit-transition:opacity 5s;opacity:0.8';
+    }, 1000);
+    setTimeout(function(){
+      c1.style.cssText += ';-webkit-transition:opacity 5s;opacity:0.8';
+    }, 10000);
+    setTimeout(function(){
+      c2.style.cssText += ';-webkit-transition:opacity 5s;opacity:0.8';
+      c3.style.cssText += ';-webkit-transition:opacity 5s;opacity:0.8';
+    }, 23000);
+  </script>
+</body>
+</html>
